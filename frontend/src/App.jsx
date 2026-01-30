@@ -110,7 +110,7 @@ function App() {
     <>
       <div className="min-h-screen bg-gray-800 flex justify-center items-center p-4">
         <div className="bg-gray-50 rounded-2xl shadow-xl w-full max-w-lg p-8">
-          <h1 className="text-4xl font-bold text-gray-800 mb-8">PERN TODO APP</h1>
+          <h1 className="text-4xl font-bold text-gray-800 mb-8">BOC TECH TODO APP</h1>
           {error && (
             <div className="bg-red-100 text-red-700 p-3 rounded mb-4">
               {error}
