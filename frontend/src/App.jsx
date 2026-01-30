@@ -40,7 +40,7 @@ function App() {
     if (!description.trim()) return
     try {
       setError(null)
-      const res = await axios.post("http://localhost:5000/todos", {
+      const res = await axios.post(`${API_URL}/todos`, {
         description, completed: false
       });
       setTodos([...todos, res.data])
