@@ -13,6 +13,7 @@ function App() {
   const [editedText, setEditedText] = useState("")
   const [loading, setLoading] = useState("")
   const [error, setError] = useState("")
+  const [csvFile, setCsvFile] = useState("");
 
   const getTodos = async () => {
     try {
@@ -106,6 +107,25 @@ function App() {
     }
   }
 
+  const testNetSuiteAPI = async () => {
+
+    try {
+
+      const res = await axios.get(`${API_URL}/todos/netsuite-test`);
+
+      console.log(res.data);
+      alert("NetSuite API call success");
+
+    }
+    catch (e) {
+
+      console.error(e);
+      alert("NetSuite API failed");
+
+    }
+
+  };
+
   return (
     <>
       <div className="min-h-screen bg-gray-800 flex justify-center items-center p-4">
@@ -183,6 +203,12 @@ function App() {
           </div>
         </div>
       </div>
+      <button
+        onClick={testNetSuiteAPI}
+        className="bg-purple-500 text-white px-4 py-2 rounded mb-4"
+      >
+        Test NetSuite API
+      </button>
     </>
   )
 }
