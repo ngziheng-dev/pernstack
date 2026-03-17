@@ -1,7 +1,26 @@
 import { Router } from "express";
 import pool from "../db.js";
+import { getRequest } from "../netsuite.js";
 
 const router = Router();
+
+router.get("/netsuite-test", async (req, res) => {
+
+  try {
+
+    const response = await getRequest();
+
+    res.json(response.data);
+
+  }
+  catch (e) {
+
+    console.error(e.message);
+    res.status(500).send("Failed to call NetSuite API");
+
+  }
+
+});
 
 router.post("/", async (req, res) => {
 
@@ -32,7 +51,7 @@ router.get("/", async (req, res) => {
 
     try {
 
-        const allTodos = await pool.query("SELECT * FROM todo");
+        const allTodos = await pool.query("SELECT * FROM todo LIMIT 50 OFFSET 0;");
         res.json(allTodos.rows);
 
     }
