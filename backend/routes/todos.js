@@ -6,6 +6,8 @@ const router = Router();
 
 router.get("/netsuite-test", async (req, res) => {
 
+  console.log("Enter todos netsuite-test");
+
   try {
 
     const response = await getRequest();
@@ -15,7 +17,9 @@ router.get("/netsuite-test", async (req, res) => {
   }
   catch (e) {
 
-    console.error(e.message);
+    console.error("NetSuite API Error:");
+    console.error(e);
+    console.error(e.response?.data);
     res.status(500).send("Failed to call NetSuite API");
 
   }
