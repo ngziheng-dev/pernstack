@@ -9,7 +9,7 @@ const token_secret = '886a08d0fb83e9bd7ecc944fc5904cf69e4caa082b7cb267dd835792b4
 const account = '9533937_SB1'; // realm/account
 const script = '513';
 const deploy = '1';
-const baseUrl = `https://9533937-sb1.restlets.api.netsuite.com/app/site/hosting/restlet.nl?`;
+const baseUrl = `https://9533937-sb1.restlets.api.netsuite.com/app/site/hosting/restlet.nl`;
 const baseUrlWithParameters = baseUrl + `?script=${script}&deploy=${deploy}`;
 const oauthSignatureMethod = 'HMAC-SHA256';
 const oauthVersion = '1.0';
