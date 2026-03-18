@@ -51,12 +51,17 @@ router.post("/upload", upload.single("file"), async (req, res) => {
         const loc = locationMap.get(outletCode) || { locId: '', locName: '' };
         const it = itemMap.get(itemCode) || { itemId: '', itemName: '' };
 
+        const rawDate = row["Date"]; // "30/01/2025"
+
+        const [day, month, year] = rawDate.split("/");
+        const formattedDate = `${year}-${month}-${day}`; // "2025-01-30"
+
         // Create CSV row for COPY
         const csvRow = [
           outletCode,
           loc.locName,
           loc.locId,
-          row["Date"],
+          formattedDate,
           itemCode,
           it.itemId,
           it.itemName,
